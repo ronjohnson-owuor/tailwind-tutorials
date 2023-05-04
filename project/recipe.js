@@ -31,10 +31,6 @@ searchInput.addEventListener("blur", () => {
     searchInput.value = "";
 });
 
-
-
-
-
 // display the meals to the frontend
 const displayMeals = (meals) =>{
  var mealList = document.querySelector("#mealList");
