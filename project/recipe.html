@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>recipe</title>
+<link rel="stylesheet" href="/dist/output.css">
+<script src="https://kit.fontawesome.com/0b36f5c9d1.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,500;1,300;1,400&display=swap" rel="stylesheet">
+</head>
+
+<body class="flex  font-['Poppins']">
+
+    <div class="min-h-screen container">
+        <nav class="w-full flex  items-center h-[100px] fixed bg-orange-700 text-white">
+            <div>
+             <h1 class="text-xl px-4  h-full ">🍚KODESFUSION</h1>
+            </div> 
+            <div class="menu absolute top-20 left-0 w-full p-4 bg-orange-700 hidden  md:flex md:top-0 md:w-4/5 md:left-1/4 md:h-full ">
+             <div>
+                 <input class="w-4/5 outline-dashed text-orange-700 h-10 my-6" type="text" placeholder="search a recipe" id="search">
+             </div>
+             <ul class="w-4/5 my-6 flex space-x-4">
+                 <li> <a href="#">☕coffee</a></li>
+                 <li> <a href="#">contact us</a></li>
+                 <li> <a href="#">about us</a></li>
+             </ul>
+            </div>
+            <div id="hamburger" class="text-base cursor-pointer absolute left-3/4 md:hidden">
+             <i style="cursor:pointer" class="fas fa-bars"></i>
+            </div>
+        </nav>
+        <br><br><br><br>
+            <!-- popular section -->
+            <main class="text-orange-700  shadow-md mt-1/4 w-full md:shadow-none"><h1 class="mx-8 my-8 text-lg font-extrabold">category</h1>
+                <br>
+                <div class="grid grid-cols-1 sm:grid-cols-2
+                md:w-full shadow-none lg:grid-cols-3 xl:grid-cols-4">
+                 <div class=" cursor-pointer mx-1 h-[200px] object-contain flex items-center shadow-md my-5">
+                    <img class="w-1/2   h-full" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80" alt="">
+                    <h1 class="mx-8 text-gray-300 text-base">Salads</h1>
+                 </div>
+                 <div class=" cursor-pointer mx-1 h-[200px] object-contain flex items-center shadow-md my-5">
+                    <img class="w-1/2  h-full" src="https://images.unsplash.com/photo-1543353071-c953d88f7033?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=725&q=80" alt="">
+                    <h1 class="mx-8 text-gray-300 text-base">Grains</h1>
+                 </div>
+                 <div class=" cursor-pointer mx-1 h-[200px] object-contain flex items-center shadow-md my-5">
+                    <img class="w-1/2  h-full" src="https://images.unsplash.com/photo-1516684732162-798a0062be99?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmljZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                    <h1 class="mx-8 text-gray-300 text-base">steak</h1>
+                 </div>
+                 <div class=" cursor-pointer mx-1 h-[200px] object-contain flex items-center shadow-md my-5">
+                    <img class="w-1/2  h-full " src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWVhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" alt="">
+                    <h1 class="mx-8 text-gray-300 text-base ">veggies</h1>
+                 </div>
+           
+        </div>
+        <br>
+
+        <div>
+            <h1 class="text-2xl my-6 mx-8 font-extrabold">dishes (search this category)</h1>
+
+            <div id="mealList" class="grid grid-cols-1 sm:grid-cols-2
+                md:w-full shadow-none lg:grid-cols-3 xl:grid-cols-3">
+          
+             </div>
+        </div>
+
+
+
+         </main>
+    </div>
+
+
+
+
+
+
+
+
+
+</body>
+<script src="recipe.js"></script>
+</html>
