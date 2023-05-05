@@ -24,17 +24,21 @@ displayMeals(meals[0]);
 // implement the search bar function here;
 var searchInput = document.querySelector("#search");
 var searchTerm = "";
-searchInput.addEventListener("blur", () => { 
+searchInput.addEventListener("input", () => { 
     searchTerm = searchInput.value;
+    console.log(searchTerm);
     meals =[];
     bringFood();
-    searchInput.value = "";
+    searchInput.value =searchTerm;
 });
+
+ 
 
 // display the meals to the frontend
 const displayMeals = (meals) =>{
+    console.log(meals);
  var mealList = document.querySelector("#mealList");
-console.log(meals);
+ mealList.innerHTML = "";
  if(meals !== null){
     for (let i = 0; i < meals.length; i++) {
 
@@ -42,19 +46,33 @@ console.log(meals);
     let mealimage = document.createElement("img");
     let mealHeading = document.createElement("h1");
    
-    mealBox.setAttribute("class","cursor-pointer mx-5 h-[200px] object-contain flex items-center shadow-md my-5");
+    mealBox.setAttribute("class","cursor-pointer mx-5 h-[200px] object-contain flex items-center shadow-md my-5 hover:text-blue-950");
      mealimage.setAttribute("class","cursor-pointer mx-1 h-[200px] object-contain flex items-center shadow-md my-5");
-    mealHeading.setAttribute("class","mx-8 text-gray-300 text-base");
-   
-   //  set various values for image and heading
+    mealHeading.setAttribute("class","mx-8 text-gray-300 text-base hover:text-blue-950");
    mealimage.src =meals[i].strMealThumb;
    mealHeading.innerHTML =meals[i].strMeal;
 
+
+//    add onclick event to the mealbox 
+mealBox.addEventListener("click", () => {
+    controlMealPopup(meals[i]);
+  });
+  mealHeading.addEventListener("click", () => {
+    controlMealPopup(meals[i]);
+  });
 //    append the list to html
 mealBox.append(mealimage,mealHeading);   
 mealList.append(mealBox);
+
 }
+} else{
+    let mealHeading = document.createElement("h1");
+    mealHeading.setAttribute("class","mx-8 text-gray-300 text-base hover:text-blue-950");
+    mealHeading.innerHTML ="Damn! that meal cannot be found 🧐";
+    mealList.append(mealHeading);
 }
+
+
 }
 
 
@@ -66,4 +84,29 @@ mealList.append(mealBox);
 
 
 
+
+ 
+// close the meal popup
+var popup = document.getElementById("overlay");
+document.getElementById("close").addEventListener( "click" , closePopup);
+function closePopup(){
+   popup.style.display = "none";
+}
+
+
+function controlMealPopup(thismeal){
+popup.style.display = "block";
+popup.setAttribute("class","overlay fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50");
+var mealArea = document.getElementById("area");
+var mealName = document.getElementById("foodName");
+var mealcategory = document.getElementById("category");
+var mealImage = document.getElementById("image");
+
+mealArea.innerHTML = thismeal.strArea;
+mealName.innerHTML =thismeal.strMeal;
+mealcategory.innerHTML = thismeal.strCategory;
+mealImage.src = thismeal.strMealThumb;
+mealImage.title = thismeal.strMeal;
+
+}
 
