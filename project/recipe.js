@@ -91,6 +91,12 @@ var popup = document.getElementById("overlay");
 document.getElementById("close").addEventListener( "click" , closePopup);
 function closePopup(){
    popup.style.display = "none";
+
+  //  clear the procedure box and the  ingridients box
+   const procedureBox = document.querySelector(".instructions");
+   procedureBox.innerHTML = "";
+   const ingridientsBox = document.querySelector(".ingridients");
+   ingridientsBox.innerHTML = "";
 }
 
 
@@ -101,6 +107,31 @@ var mealArea = document.getElementById("area");
 var mealName = document.getElementById("foodName");
 var mealcategory = document.getElementById("category");
 var mealImage = document.getElementById("image");
+
+
+const object = thismeal;
+
+// showing the instruction
+const procedureBox = document.querySelector(".instructions");
+let procedure = document.createElement("p");
+procedure.innerHTML = thismeal.strInstructions;
+procedureBox.append(procedure);
+
+
+// listing the ingridients
+for (let i = 1; i <= 20; i++) {
+  const ingredient = object[`strIngredient${i}`];
+  if (ingredient) {
+    let ingridients = document.createElement("p");
+    ingridients.innerHTML = ` ${i}. ${ingredient} <br/>`;
+   const ingridientsBox = document.querySelector(".ingridients");
+   ingridientsBox.append(ingridients);
+    console.log(ingridients);
+  } else {
+    break; // stop looping if no more ingredients are found
+  }
+}
+
 
 mealArea.innerHTML = thismeal.strArea;
 mealName.innerHTML =thismeal.strMeal;
